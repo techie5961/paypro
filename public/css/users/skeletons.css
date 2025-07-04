@@ -1,0 +1,112 @@
+.skeletons{
+    width:100%;
+   flex:1 0 auto;
+   background:var(--bg);
+   display:none;
+   flex-direction: column;
+   gap:10px;
+   padding:10px;
+   align-items:center;
+   overflow:hidden;
+   position:fixed;
+   top:0;
+   left:0;
+   bottom:0;
+   right:0;
+   
+
+}
+.bones{
+    position:relative;
+    clip-path:inset(0 round 0);
+    overflow:hidden;
+    background:var(--bg-light);
+}
+.bones.card{
+ width:100%;
+ height:200px;
+ background:var(--bg-light);
+ border-radius:10px;
+ 
+}
+.bones::after{
+    background:linear-gradient(to right,transparent,var(--bg),transparent);
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+   width:100%;
+    transform:skew(45deg);
+    animation:shimmer 1.5s linear infinite;
+}
+@keyframes shimmer{
+    0%{
+        left:-100%;
+    }
+    
+ 100%{
+        left:100%;
+    }
+}
+.bones.circle{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:var(--bg-light);
+}
+.bones.square{
+    width:100%;
+    aspect-ratio:1;
+    border-radius: 10px;
+    background:var(--bg-light);
+
+}
+.skeletons .grid8{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    place-items:center;
+    gap:10px;
+    width:100%;
+
+}
+.bones.bar{
+    width:100%;
+    height:50px;
+    border-radius:10px;
+
+
+    
+}
+.bones.button{
+    width:150px;
+    border-radius:10px;
+    height:50px;
+}
+.bones.line{
+    width:100%;
+    height:10px;
+
+}
+.bones.menu{
+    width:70%;
+    aspect-ratio:1;
+    border-radius:50%;
+   
+}
+@media(min-width:800px){
+    .bones.card,.bones.bar{
+        width:500px;
+    }
+    .skeletons{
+        padding:10px 10vw;
+    }
+    .skeletons .grid8{
+        grid-template-columns: repeat(8,1fr);
+    }
+    .bones.square{
+        max-width:500px;
+    }
+
+    
+}

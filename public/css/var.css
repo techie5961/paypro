@@ -1,0 +1,11 @@
+:root{
+    --primary:purple;
+    --primary-light:rgb(108, 92, 231);
+    --primary-transparent:rgba(108, 92, 231, 0.3);
+    --secondary:rgb(4, 4, 27);
+    --blue:aqua;
+    --z-index-average:3000;
+    --z-index-high:5000;
+    --z-index-highest:10000;
+
+}

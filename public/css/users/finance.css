@@ -1,0 +1,38 @@
+.fixed.use{
+    background:var(--primary-light);
+}
+body{
+    overflow:hidden;
+    
+}
+ .body.use{
+    color:white;
+   
+}
+.initiate-amount{
+    font-size:2rem;
+    margin-top:50px;
+}
+.group{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    flex:1 0 auto;
+    padding:10px;
+}
+.house{
+    width:100%;
+    max-width:500px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    background:rgba(255,255,255,0.5);
+    border:1px solid white;
+    padding:10px;
+    border-radius:10px;
+
+}
+.house img{
+    width:40%;
+}

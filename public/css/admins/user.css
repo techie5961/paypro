@@ -1,0 +1,28 @@
+.action-head{
+    width:100%;
+    text-align:center;
+    padding:10px;
+     border-bottom: 3px solid silver;
+   cursor: pointer;
+   user-select:none;
+}
+.action-head.active{
+    border-bottom:3px solid #4caf50;
+    pointer-events: none;
+}
+.form{
+    display:none;
+}
+.form.active{
+    display:flex;
+    animation:trans-in 0.5s linear forwards;
+    transform:translateX(100%);
+}
+@keyframes trans-in{
+    0%{
+        transform:translateX(100%);
+    }
+    100%{
+        transform:translateX(0);
+    }
+}

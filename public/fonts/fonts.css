@@ -1,0 +1,46 @@
+@font-face {
+    font-family: poppins;
+    src: url('Poppins/Poppins-Light.otf');
+    font-weight: 100;
+   font-style: normal;
+}
+@font-face {
+    font-family: poppins;
+    src: url('Poppins/Poppins-Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: poppins;
+    src: url('Poppins/Poppins-Italic.otf');
+    font-style: italic;
+    font-weight: 400;
+    
+}
+@font-face {
+    font-family: poppins;
+    src: url('Poppins/Poppins-Regular.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: poppins;
+    src: url('Poppins/Poppins-ExtraBold.otf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'cinzel decorative';
+    src: url('Cinzel_Decorative/CinzelDecorative-Regular.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'cinzel decorative';
+    src: url('Cinzel_Decorative/CinzelDecorative-Bold.ttf');
+    font-weight:bold;
+}
+@font-face {
+    font-family:'bar code';
+    src:url('Bar_Code/LibreBarcode128-Regular.ttf');
+    
+}

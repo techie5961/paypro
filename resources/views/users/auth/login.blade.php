@@ -1,0 +1,58 @@
+@extends('layout.users.auth')
+@section('title')
+   Login
+@endsection 
+@section('css')
+    <style class="css">
+       main{
+        justify-content:center;
+       }
+    </style>
+@endsection
+@section('main')
+    <section class="section1">
+        <img class="logo" src="{{ asset('icons/favicon.svg') }}" alt="Logo">
+        <h4 class="desc">Sign In</h4>
+        <form action="{{ url('users/post/login/process') }}" method="POST" onsubmit="PostRequest(event,this,call_back)">
+            <input type="hidden" value="{{ csrf_token() }}" name="_token" class="input">
+            <div class="cont required">
+             <div class="icon">
+                  <svg style="font-size:1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+</svg>
+             </div>
+
+
+                <input placeholder="username or email" type="text" class="inp input" name="id">
+            </div>
+             
+            
+            <div class="cont required">
+             <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="var(--primary)" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-104a40,40,0,1,0-65.94,30.44L88.68,172.77A8,8,0,0,0,96,184h64a8,8,0,0,0,7.32-11.23l-13.38-30.33A40.14,40.14,0,0,0,168,112ZM136.68,143l11,25.05H108.27l11-25.05A8,8,0,0,0,116,132.79a24,24,0,1,1,24,0A8,8,0,0,0,136.68,143Z"></path></svg>
+                   </div>
+                   
+
+
+                <input placeholder="Password" type="password" class="inp input" name="password">
+            </div>
+           
+           <label class="agree"><span>Forgot Password? <a href="{{ url('forgot') }}">reset</a></span></label>
+        <button class="post"><div class="working"><div class="work"></div>working....</div><div class="content">Login Safely</div></button>
+        </form>
+        <div class="or"><hr><span style="white-space: nowrap">OR</span><hr></div>
+        <b class="alternative">
+            <span>Don't Have an Account? <a href="{{ url('register') }}">Register</a></span>
+        </b>
+    </section>
+@endsection
+@section('js')
+    <script class="js">
+        function call_back(response,event){
+            let data=JSON.parse(response);
+            if(data.status == 'success'){
+                window.location.href=data.url;
+            }
+        }
+    </script>
+@endsection

@@ -1,0 +1,43 @@
+.image{
+    background-size:cover;
+    background-position:center;
+    height:100px;
+    width:100px;
+    border-radius:50%;
+   position:relative;
+}
+.image .edit{
+    position:absolute;
+    right:0;
+    bottom:0;
+    background:var(--bg-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    cursor:pointer;
+    width:2rem;
+    height:2rem;
+    clip-path:inset(0 round 50%);
+}
+label.upload{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:var(--primary-transparent);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    clip-path:inset(0 round 50%);
+    cursor:pointer;
+    border-radius:50%;
+    border:3px dashed rgb(108,92,230);
+    user-select:none;
+    background-size: cover;
+    background-position: center;
+}
+label.upload.active svg,label.upload.active span{
+    display:none;
+}

@@ -1,0 +1,236 @@
+main{
+    background:var(--primary-light);
+}
+.section1{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    padding:10px;
+    color:white;
+    user-select:none;
+}
+.balance{
+    font-size:2rem;
+    font-weight:800;
+}
+.section1 .desc{
+    margin-top:10px;
+   
+}
+.section1 .grid{
+    grid-template-columns:repeat(2,1fr);
+    place-items:center;
+    gap:10px;
+    display:grid;width:100%;
+
+}
+.section1 .grid .quick{
+    background:rgba(255,255,255,0.2);
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    width:100%;
+    border-radius: 10px;
+    align-items:center;
+    cursor:pointer;
+    clip-path:inset(0 round 10px);
+}
+.grid .quick svg{
+    fill:white;
+    stroke:white;
+   
+}
+.section2{
+    width:100%;
+    padding:10px;
+    flex:1 0 auto;
+    background:var(--bg);
+    border-radius:20px 20px 0 0;
+     border-radius:10px 10px 0 0;
+}
+.menu{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    grid-column: 1/-1;
+
+}
+.item{
+    display: flex;
+    flex-direction:column;
+    gap:5px;
+    font-size:0.6rem;
+    align-items:center;
+    background:var(--primary-transparent);
+    background:var(--bg-light);
+    padding:10px 5px;
+    border-radius:10px;
+    cursor:pointer;
+    clip-path:inset(0 round 5px);
+    user-select:none;
+}
+.item svg{
+    height:2rem;
+    width:2rem;
+    font-size:2rem;
+    fill:var(--primary-light);
+    background:var(--primary-transparent);
+    padding:5px;
+    border-radius:50%;
+
+} 
+.item b{
+    font-weight:normal;
+   
+}
+.ads{
+    background:#ffd700;
+    font-family:'cinzel decorative';
+    margin:10px 0;
+    display:flex;
+    flex-direction:row;
+    gap:5px;
+    padding:10px;
+    border-radius:10px;
+    color:black;
+    align-items:center;
+    word-break:normal;
+    user-select:none;
+    font-size:0.7rem;
+    font-weight:bold;
+}
+.ads svg{
+    font-size:2rem;
+    min-height:2rem;
+    min-width:2rem;
+    
+
+}
+.ads .icon{
+    background:var(--primary-transparent);
+    padding:10px;
+    border-radius:50%;
+   
+    min-width:calc(2rem + 20px);
+    min-height:calc(2rem + 20px);
+    max-width:calc(2rem + 20px);
+    max-height:calc(2rem + 20px);
+}
+button.go{
+    background:var(--primary);
+    color:white;
+    border-radius:100px;
+    padding:5px 10px;
+    font-family:poppins;
+    border:none;
+    font-size:0.7rem;
+    cursor:pointer;
+    clip-path:inset(0 round 1000px);
+
+  
+}
+/* SHINING BUTTON */
+.frutiger-button {
+  cursor: pointer;
+  position: relative;
+  padding: 2px;
+  border-radius: 6px;
+  border: 0;
+  text-shadow: 1px 1px #000a;
+  background: linear-gradient(rgb(88, 72, 210), rgb(128, 112, 250));
+  box-shadow: 0px 4px 6px 0px #0008;
+  transition: 0.3s all;
+}
+
+.frutiger-button:hover {
+  box-shadow: 0px 6px 12px 0px #0009;
+}
+
+.frutiger-button:active {
+  box-shadow: 0px 0px 0px 0px #0000;
+}
+
+.inner {
+  position: relative;
+  inset: 0px;
+  padding: 1em;
+  border-radius: 4px;
+  background: radial-gradient(circle at 50% 100%, rgba(168, 152, 255, 0.8) 10%, rgba(168, 152, 255, 0) 55%),
+    linear-gradient(rgb(78, 62, 200), rgb(108, 92, 230));
+  overflow: hidden;
+  transition: inherit;
+}
+
+.inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-65deg, #0000 40%, #fff7 50%, #0000 70%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: thing 3s ease infinite;
+}
+
+@keyframes thing {
+  0% {
+    background-position: 130%;
+    opacity: 1;
+  }
+
+  to {
+    background-position: -166%;
+    opacity: 0;
+  }
+}
+
+.top-white {
+  position: absolute;
+  border-radius: inherit;
+  inset: 0 -8em;
+  background: radial-gradient(
+    circle at 50% -270%,
+    #fff 45%,
+    #fff6 60%,
+    #fff0 60%
+  );
+  transition: inherit;
+  
+}
+
+.inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: inherit;
+  box-shadow: inset 0px 2px 8px -2px #0000;
+}
+
+.frutiger-button:active .inner::after {
+  box-shadow: inset 0px 2px 8px -2px #000a;
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  color: #48ff00;
+  font-weight: 550;
+  transition: inherit;
+  font-family:'cinzel decorative';
+}
+@media(min-width:800px){
+    .section1 .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+    main{
+        padding-bottom:0;
+    }
+    .section2{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+
+    }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPro - Password Reset OTP</title>
+    <style type="text/css">
+        /* Base styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f7f7f7;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .logo {
+            color: #6c5ce6;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        /* Card */
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        /* Title */
+        .title {
+            color: #6c5ce6;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* Text */
+        .text {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #555555;
+        }
+        
+        /* OTP Box */
+        .otp-box {
+            background-color: #f5f3ff;
+            border: 2px dashed #6c5ce6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px auto;
+            display: inline-block;
+        }
+        
+        .otp-code {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #6c5ce6;
+        }
+        
+        /* Divider */
+        .divider {
+            border-top: 1px solid #eeeeee;
+            margin: 30px 0;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            color: #999999;
+        }
+        
+        /* Link */
+        .link {
+            color: #6c5ce6;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .text {
+                font-size: 15px;
+            }
+            
+            .otp-code {
+                font-size: 28px;
+                letter-spacing: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="#" class="logo">PayPro</a>
+        </div>
+        
+        <div class="card">
+            <h1 class="title">Password Reset OTP</h1>
+            
+            <p class="text">
+                We received a request to reset your PayPro account password. 
+                Use the following One-Time Password (OTP) to verify your identity:
+            </p>
+            
+            <div class="otp-box">
+                <div class="otp-code">{{OTP_CODE}}</div>
+            </div>
+            
+            <p class="text">
+                This OTP is valid for 10 minutes. Please do not share this code with anyone.
+            </p>
+            
+            <p class="text">
+                If you didn't request this password reset, please ignore this email or 
+                <a href="#" class="link">contact support</a> immediately.
+            </p>
+            
+            <div class="divider"></div>
+            
+            <p class="text" style="font-size: 14px; color: #888888;">
+                For security reasons, we recommend you don't share this OTP with anyone. 
+                PayPro will never ask you for your password or OTP via email or phone.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 PayPro. All rights reserved.</p>
+            <p>
+                <a href="#" class="link">Help Center</a> | 
+                <a href="#" class="link">Privacy Policy</a> | 
+                <a href="#" class="link">Terms of Service</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
