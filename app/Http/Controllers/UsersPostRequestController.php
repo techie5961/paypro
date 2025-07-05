@@ -469,4 +469,58 @@ $head='<img src="'.asset('images/admins/'.$admin->photo.'').'"> <b>'.$admin->nam
        ]);
       }
     }
+    // submit task
+    public function SubmitTask(){
+      if(DB::table('proofs')->where('task_id',request()->input('id'))->count() > 0){
+        return response()->json([
+          'message' => 'You have performed this task before',
+          'status' => 'error'
+        ]);
+      }
+
+    $name=time().'.'.request()->file('screenshot')->getClientOriginalExtension();
+    if(request()->file('screenshot')->move(public_path('proofs'),$name)){
+      $task=DB::table('tasks')->where('id',request()->input('id'))->first();
+      DB::table('users')->where('id',Auth::guard('users')->user()->id)->update([
+        'balance' => DB::raw('balance + '.$task->reward.'')
+      ]);
+      DB::table('tasks')->where('id',request()->input('id'))->update([
+        'done' => DB::raw('done + 1')
+      ]);
+       DB::table('transactions')->insert([
+                    'uniqid' => strtoupper(uniqid('trx-')),
+                    'user_id' => Auth::guard('users')->user()->id,
+                    'type' => 'task',
+                    'class' => 'credit',
+                    'amount' => $task->reward,
+                    'head' => 'Task Reward',
+                    'body' => json_encode([
+                        'user' => 'Task Reward',
+                        'admin' => 'Task Reward'
+                    ]),
+                    'status' => 'success',
+                    'date' => Carbon::now()
+                ]);
+      
+        DB::table('users')->where('username',request()->input('username'))->where('email',request()->input('email'))->update([
+          'ref->username' => request()->input('ref')
+        ]);
+      DB::table('proofs')->insert([
+        'user_id' => Auth::guard('users')->user()->id,
+        'task_id' => request()->input('id'),
+        'uniqid' => strtoupper(uniqid('PRF-')),
+        'json' => json_encode([
+          'screenshot' => $name,
+          'reward' => $task->reward
+        ]),
+        'status' => 'active',
+        'date' => Carbon::now()
+      ]);
+      return response()->json([
+        'message' => 'Task performed success',
+        'status' => 'success',
+        'url' => url('users/tasks')
+      ]);
+    }
+    }
 }

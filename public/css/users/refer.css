@@ -62,6 +62,15 @@
     
 
 }
+label[for=photo]{
+    background-size:cover;
+    /* background-position:center; */
+    min-height:200px;
+    
+}
+label[for=photo].active *{
+    display:none;
+}
 .ref-link span{
     padding:10px 10px 10px 0;
     white-space: nowrap;

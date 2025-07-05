@@ -320,4 +320,37 @@ class AdminsPostRequestController extends Controller
             ]);
          }
     }
+    // add task
+    public function AddTask(){
+        DB::table('tasks')->insert([
+            'link' => request()->input('link'),
+            'title' => request()->input('title'),
+            'reward' => request()->input('reward'),
+            'limit' => request()->input('limit'),
+            'instructions' => request()->input('instructions'),
+            'date' => Carbon::now()
+        ]);
+        return response()->json([
+            'message' => 'Task posted successfully',
+            'status' => 'success',
+            'url' => url('admins/tasks/manage')
+        ]);
+    }
+     // edit task
+    public function EditTask(){
+        DB::table('tasks')->where('id',request()->input('id'))->update([
+            'link' => request()->input('link'),
+            'title' => request()->input('title'),
+            'reward' => request()->input('reward'),
+            'limit' => request()->input('limit'),
+            'instructions' => request()->input('instructions'),
+            'date' => Carbon::now()
+        ]);
+        return response()->json([
+            'message' => 'Task editted successfully',
+            'status' => 'success',
+            'url' => url('admins/tasks/manage')
+        ]);
+    }
+   
 }

@@ -283,5 +283,20 @@ $head='<img src="'.asset('images/admins/'.$admin->photo.'').'"> <b>'.$admin->nam
         Auth::guard('users')->logout();
         return redirect()->to('login');
     }
+     // tasks
+    public function Tasks(){
+        $proofs=DB::table('proofs')->where('user_id',Auth::guard('users')->user()->id)->pluck('task_id');
+        $tasks=DB::table('tasks')->whereNotIn('id',$proofs)->where('status','active')->whereColumn('done','<','limit')->orderBy('date','desc')->paginate(10);
+        return view('users.tasks.available',[
+            'tasks' => $tasks
+        ]);
+    }
+    // accept task
+    public function AcceptTask(){
+    $task=DB::table('tasks')->where('id',request()->input('id'))->first();
+        return view('users.tasks.accept',[
+            'task' => $task
+        ]);
+    }
 
 }

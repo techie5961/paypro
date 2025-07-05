@@ -131,6 +131,13 @@ Route::prefix('users')->group(function(){
          Route::get('logout',[
             UsersDashboardController::class,'Logout'
          ]);
+         Route::get('tasks',[
+            UsersDashboardController::class,'Tasks'
+         ]);
+         Route::get('tasks/accept',[
+            UsersDashboardController::class,'AcceptTask'
+         ]);
+       
 
    
 
@@ -170,6 +177,9 @@ Route::prefix('users')->group(function(){
     ]);
     Route::post('forgot/reset/password/process',[
         UsersPostRequestController::class,'ResetPassword'
+    ]);
+    Route::post('submit/task/process',[
+        UsersPostRequestController::class,'SubmitTask'
     ]);
     });
    
@@ -265,6 +275,21 @@ Route::prefix('admins')->group(function(){
     Route::get('get/mark/as/promoter',[
        AdminsGetRequestController::class,'MarkAsPromoter'
     ]);
+    Route::get('tasks/add',[
+        AdminsDashboardController::class,'AddTask'
+    ]);
+    Route::get('tasks/manage',[
+        AdminsDashboardController::class,'ManageTasks'
+    ]);
+      Route::get('task/edit',[
+            AdminsDashboardController::class,'EditTask'
+         ]);
+        Route::get('task/delete',[
+            AdminsGetRequestController::class,'DeleteTask'
+        ]);
+        Route::get('tasks/done',[
+            AdminsDashboardController::class,'DoneTasks'
+        ]);
 
     
 
@@ -301,6 +326,12 @@ Route::prefix('admins')->group(function(){
         ]);
         Route::post('general/settings/process',[
             AdminsPostRequestController::class,'GeneralSettings'
+        ]);
+        Route::post('add/task/process',[
+            AdminsPostRequestController::class,'AddTask'
+        ]);
+        Route::post('edit/task/process',[
+            AdminsPostRequestController::class,'EditTask'
         ]);
         
     });

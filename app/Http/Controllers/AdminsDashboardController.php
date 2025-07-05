@@ -541,4 +541,45 @@ class AdminsDashboardController extends Controller
             'logs' => $logs
         ]);
     }
+    // add task
+    public function AddTask(){
+        return view('admins.tasks.add');
+    }
+    // manage tasks
+    public function ManageTasks(){
+        $tasks=DB::table('tasks')->where('status','active')->orderBy('date','desc')->paginate(10);
+        $tasks->getCollection()->transform(function($each){
+            $each->frame=Carbon::parse($each->date)->diffForHumans();
+        return $each;
+        });
+        return view('admins.tasks.manage',[
+            'tasks' => $tasks
+        ]);
+    }
+    // edit task
+    public function EditTask(){
+        return view('admins.tasks.edit',[
+            'task' => DB::table('tasks')->where('id',request()->input('id'))->first()
+        ]);
+    }
+    // done tasks
+    public function DoneTasks(){
+        $done=DB::table('proofs')->orderBy('date','desc')->paginate(10);
+        $done->getCollection()->transform(function($each){
+            $user=DB::table('users')->where('id',$each->user_id)->first();
+          $each->photo=$user->photo;
+          $each->username=$user->username;
+          $each->frame=Carbon::parse($each->date)->diffForHumans();
+          $task=DB::table('tasks')->where('id',$each->task_id)->first();
+          $each->head=$task->title ?? '';
+          $each->link=$task->link ?? '';
+          $each->proof=json_decode($each->json)->screenshot;
+            $each->amount=json_decode($each->json)->reward ?? 0;
+            return $each;
+        });
+        return view('admins.tasks.done',[
+            'proofs' => $done
+        ]);
+    }
+   
 }

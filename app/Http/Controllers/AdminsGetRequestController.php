@@ -101,4 +101,9 @@ class AdminsGetRequestController extends Controller
             ]);
          }
     }
+     // delete task
+    public function DeleteTask(){
+        DB::table('tasks')->where('id',request()->input('id'))->delete();
+        return redirect()->to('admins/tasks/manage');
+    }
 }
